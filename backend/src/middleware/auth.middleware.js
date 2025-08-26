@@ -23,6 +23,7 @@ const authorizedAsAdmin = async (req, res, next) => {
     next();
   } catch (error) {
     res.status(500).json({ message: "Error checking admin status", error: error.message });
+    // next(error)
   }
 };
 
