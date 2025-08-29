@@ -7,8 +7,10 @@ import fileupload from "express-fileupload"; // for file uploads
 
 const app = express();
 dotenv.config();
+
 const PORT = process.env.PORT;
 const __dirname = path.resolve(); // Get the current directory name
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(clerkMiddleware()); // this will add auth to req obj
@@ -43,14 +45,10 @@ if (PORT === undefined) {
 // error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res
-    .status(500)
-    .json({
-      message:
-        process.env.NODE_ENV === "production"
-          ? "Something broke!"
-          : err.message,
-    });
+  res.status(500).json({
+    message:
+      process.env.NODE_ENV === "production" ? "Something broke!" : err.message,
+  });
 });
 
 //port listen

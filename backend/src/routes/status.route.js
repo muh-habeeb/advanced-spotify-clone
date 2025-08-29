@@ -1,10 +1,12 @@
 import { Router } from "express";
-const router =Router()
-router.get("/",(req,res)=>{
-    res.send("status route")
-})
-// router.route("/").get((req,res)=>{
-//     res.send("User route")
-// })
+
+import { getStatus } from "../controller/status.controller.js";
+import {
+  authorized,
+  authorizedAsAdmin,
+} from "../middleware/auth.middleware.js";
+const router = Router();
+
+router.get("/", authorized, authorizedAsAdmin, getStatus);
 
 export default router;

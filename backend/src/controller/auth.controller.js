@@ -1,4 +1,4 @@
-import { User } from "../lib/model/user.model.js";
+import { User } from "../model/user.model.js";
 
 const userRegistrationCallback = async (req, res,next) => {
   try {
@@ -25,6 +25,7 @@ const userRegistrationCallback = async (req, res,next) => {
     next(error)
   }
 };
+
 
 const userLogin = async (req, res) => {
   res.send("Auth route log in   ");
