@@ -1,8 +1,9 @@
 import { axiosInstance } from "@/lib/axios"
+import type { Album, Song } from "@/types"
 import { create } from "zustand"
 interface MusicStore {
-    songs: any[],
-    albums: any[],
+    songs: Song[],
+    albums: Album[],
     isLoading: boolean,
     error: string | null,
     fetchAlbums: () => Promise<void>
