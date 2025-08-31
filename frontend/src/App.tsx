@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import AuthCallBackPage from "./pages/AuthCallBackPage";
 import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 import MainLayout from "./layout/MainLayout";
+import NotFoundPage from "./pages/404/NotFoundPage";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
 
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFoundPage/>}/>
         </Route>
       </Routes>
     </>

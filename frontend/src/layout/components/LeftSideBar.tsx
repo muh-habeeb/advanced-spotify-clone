@@ -5,11 +5,15 @@ import { cn } from "@/lib/utils"
 import { useMusicStore } from "@/stores/useMusicStore"
 import { SignedIn } from "@clerk/clerk-react"
 import { HomeIcon, Library, MessageCircleIcon } from "lucide-react"
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 const LeftSideBar = () => {
-    const isLoading = false;
-    const { songs, albums } = useMusicStore()
+    const { songs, albums, fetchAlbums, isLoading } = useMusicStore();
+    useEffect(() => {
+        fetchAlbums();
+    }, [fetchAlbums])
+
     return (
         <div className="h-full flex flex-col gap-2">
 
@@ -53,9 +57,24 @@ const LeftSideBar = () => {
                         {isLoading ? (
                             <PlaylistSkeleton />
                         ) : (
-                            <div className="">
+                            albums.map((album) => (
+                                <Link to={`/albums/${album._id}`}
+                                    key={album._id}
+                                    className="p-2 hover:bg-zinc-700 rounded-lg flex items-center gap-3 group cursor-pointer"
+                                >
+                                    <img src={album.imageUrl} alt="album poster"
+                                        className="size-12 rounded-md flex shrink-0 object-cover" />
+                                        <div className="flex-1 min-w-0 hidden md:block">
+                                            <p className="font-medium truncate">
+                                                {album.title}
+                                            </p>
+                                            <p className="font-sm text-zinc-400 truncate">
+                                               Album • {album.artist}
+                                            </p>
+                                        </div>
+                                </Link>
+                            ))
 
-                            </div>
                         )}
                     </div>
 
