@@ -3,7 +3,7 @@ import { userLogin,userRegistrationCallback  } from "../controller/auth.controll
 
 const router = Router();
 
-router.post("/reg-callback",userRegistrationCallback)
+router.post("/register", userRegistrationCallback)
 router.get("/login",userLogin);
 
 export default router;

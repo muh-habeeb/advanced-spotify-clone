@@ -4,13 +4,18 @@ import dotenv from "dotenv";
 import { connectDB } from "./lib/db.js"; // database connection
 import path from "path";
 import fileupload from "express-fileupload"; // for file uploads
-
+import cors from "cors"
 const app = express();
 dotenv.config();
 
+
 const PORT = process.env.PORT;
 const __dirname = path.resolve(); // Get the current directory name
-
+app.use(cors({
+  origin:"http://localhost:3000",
+  credentials:true,
+  
+}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(clerkMiddleware()); // this will add auth to req obj
