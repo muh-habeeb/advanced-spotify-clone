@@ -77,7 +77,6 @@ const LeftSideBar = () => {
 
                         )}
                     </div>
-
                 </ScrollArea>
             </div>
         </div >
