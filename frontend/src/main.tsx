@@ -8,12 +8,16 @@ import "./index.css";
 // import App from "./App.tsx";
 import {
   ClerkProvider,
+  RedirectToSignIn,
   SignedIn,
   SignedOut,
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
-
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import AuthProvider from "./providers/AuthProvider";
+import { Toaster } from "react-hot-toast";
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -22,22 +26,23 @@ if (!PUBLISHABLE_KEY) {
 }
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <div className="flex h-[100vh] w-auto bg-slate-800 text-white justify-center items-center text-3xl ">
+    <div>
       <ClerkProvider
         publishableKey={PUBLISHABLE_KEY}
         appearance={{ baseTheme: shadesOfPurple }}
       >
-        <SignedOut>
-          <SignInButton
-            mode="modal"
-            appearance={{ baseTheme: shadesOfPurple }} 
-
-          
-          > Sign In to continue</SignInButton>
-        </SignedOut>
-        <SignedIn>
-          <UserButton appearance={{ baseTheme: shadesOfPurple }} />
-        </SignedIn>
+        <BrowserRouter>
+          <AuthProvider>
+            <App />
+              <SignedOut>
+                <RedirectToSignIn />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+              <Toaster />
+          </AuthProvider>
+        </BrowserRouter>
       </ClerkProvider>
     </div>
   </StrictMode>

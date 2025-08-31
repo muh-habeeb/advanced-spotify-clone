@@ -4,6 +4,7 @@ const userRegistrationCallback = async (req, res,next) => {
   try {
     //get data from body
     const { id, firstName, lastName, imageUrl } = req.body;
+    
 
     //check if user exist
     const user = await User.findOne({ clerkId: id });
