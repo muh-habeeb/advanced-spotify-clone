@@ -8,6 +8,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const { getToken } = useAuth();
     const [loading, setLoading] = useState(true);
 
+    // update axios instance with token
+    // will call avery time referees the page
     const updateApiToken = (token: string | null) => {
         if (token) {
             axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -18,23 +20,39 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     useEffect(() => {
         const initAuth = async () => {
+            // Start with a loading toast
+            toast.loading("Authenticating...", { id: "auth-status" });
+
             try {
                 const token = await getToken();
+
                 if (token === null) {
-                    toast.error("User not authenticated");
+                    toast.error("You are not authenticated", {
+                        id: "auth-status", // 👈 replaces the loading toast
+                        duration: 2000,
+                    });
                     return;
                 }
+
                 updateApiToken(token);
+
+                toast.success("Authenticated successfully!", {
+                    id: "auth-status", // 👈 replaces the loading toast
+                    duration: 2000,
+                });
             } catch (error: any) {
                 console.error("Error in auth provider:", error);
-                toast.error(error.message || "Authentication failed");
+                toast.error(error.message || "Authentication failed", {
+                    id: "auth-status", // 👈 replaces the loading toast
+                });
             } finally {
                 setLoading(false);
             }
         };
 
         initAuth();
-    }, [getToken]);
+    }, []);
+
 
     if (loading) {
         return (

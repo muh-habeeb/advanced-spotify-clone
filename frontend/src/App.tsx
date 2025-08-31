@@ -2,8 +2,7 @@ import { Route, Routes } from "react-router-dom";
 // import { Button } from "./components/ui/button";
 import Home from "./pages/Home";
 import AuthCallBackPage from "./pages/AuthCallBackPage";
-import { axiosInstance } from "./lib/axios";
-import toast, { Toaster } from 'react-hot-toast';
+import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 
 const App = () => {
   return (
@@ -11,6 +10,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/sso-callback" element={<AuthenticateWithRedirectCallback signInForceRedirectUrl={"/auth-callback"} />} />
         <Route path="/auth-callback" element={<AuthCallBackPage />} />
       </Routes>
     </>

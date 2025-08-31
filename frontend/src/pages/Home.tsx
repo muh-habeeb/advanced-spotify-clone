@@ -1,3 +1,4 @@
+import Topbar from "@/components/_components/Topbar";
 import { Button } from "@/components/ui/button";
 import toast from "react-hot-toast";
 
@@ -25,8 +26,7 @@ const Home = () => {
 
   return (
     <div>
-      home
-      <Button onClick={welcome}>hi</Button>
+     <Topbar/>
     </div>
   )
 }

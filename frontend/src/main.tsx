@@ -34,13 +34,8 @@ createRoot(document.getElementById("root")!).render(
         <BrowserRouter>
           <AuthProvider>
             <App />
-              <SignedOut>
-                <RedirectToSignIn />
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-              <Toaster />
+
+            <Toaster />
           </AuthProvider>
         </BrowserRouter>
       </ClerkProvider>
