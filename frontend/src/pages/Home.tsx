@@ -1,5 +1,5 @@
 import Topbar from "@/components/_components/Topbar";
-import { Button } from "@/components/ui/button";
+import FlyManLoader from "@/components/ui/Loaders/FlymanLoader";
 import toast from "react-hot-toast";
 
 const welcome = () => {
@@ -27,6 +27,7 @@ const Home = () => {
   return (
     <div>
      <Topbar/>
+     {/* <FlyManLoader /> */}
     </div>
   )
 }

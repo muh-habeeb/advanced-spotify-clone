@@ -1,6 +1,6 @@
 import { axiosInstance } from "@/lib/axios";
 import { useAuth } from "@clerk/clerk-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import LoaderSpin from "@/components/ui/Loaders/LoaderSpin";
 
@@ -19,6 +19,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       delete axiosInstance.defaults.headers.common["Authorization"];
     }
   };
+
+  
 
   useEffect(() => {
     const initAuth = async () => {
@@ -58,7 +60,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   if (loading) {
     return (
       <div className="h-screen flex items-center justify-center w-full">
-       <LoaderSpin/>
+        <LoaderSpin />
       </div>
     );
   }

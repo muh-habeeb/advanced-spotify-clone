@@ -2,25 +2,29 @@ import { Card, CardContent } from '@/components/ui/card'
 import { axiosInstance } from '@/lib/axios'
 import { useUser } from '@clerk/clerk-react'
 import { Loader } from 'lucide-react'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const AuthCallBackPage = () => {
   const { isLoaded, user } = useUser();
   const navigate = useNavigate()
+  //prevent from sending data in dev mode twice
+  const syncAttempted = useRef(false);
   useEffect(() => {
     const syncUser = async () => {
       try {
-        if (!isLoaded || !user) return;
-        console.log(user)
+        if (!isLoaded || !user || syncAttempted.current) return;
         // register url of backend after /api
+        syncAttempted.current = true
         await axiosInstance.post("/auth/register", {
+          //send user data for saving to  the  database 
           id: user.id,
           email: user.primaryEmailAddress?.emailAddress || "",
           fullName: user.fullName,
           lastName: user.lastName,
           imageUrl: user.imageUrl
         })
+
       } catch (error: any) {
         console.log("Error in auth call back", error)
       } finally {
