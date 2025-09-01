@@ -16,7 +16,7 @@ const albumSchema = new mongoose.Schema(
     },
     releaseDate: {
       type: Date,
-      required: true,
+      required: false,
     },
     //many song in one album
     songs: [

@@ -1,10 +1,10 @@
-import { User } from "../model/user.model.js";
+import { User } from "../models/user.model.js";
 
 const userRegistrationCallback = async (req, res, next) => {
   try {
     //get data from body
     const { id, email, fullName, imageUrl } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     //check if user exist
     const user = await User.findOne({ clerkId: id });
 

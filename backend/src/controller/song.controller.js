@@ -1,4 +1,4 @@
-import { Song } from "../model/song.model.js";
+import { Song } from "../models/song.model.js";
 
 // all functions are same .modify for your wish for better recomputation
 export const getAllSongs = async (req, res, next) => {

@@ -1,7 +1,7 @@
-import { Song } from "../model/song.model.js";
-import { User } from "../model/user.model.js";
-import { Album } from "../model/album.model.js";
-import { Artist } from "../model/Artist.model.js";
+import { Song } from "../models/song.model.js";
+import { User } from "../models/user.model.js";
+import { Album } from "../models/album.model.js";
+import { Artist } from "../models/Artist.model.js";
 
 export const getStatus = async (req, res, next) => {
   try {
