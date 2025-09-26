@@ -10,7 +10,7 @@ const AlbumsTable = () => {
 	useEffect(() => {
 		fetchAlbums();
 	}, [fetchAlbums]);
-
+// console.log(albums)
 	return (
 		<Table>
 			<TableHeader>
@@ -34,7 +34,7 @@ const AlbumsTable = () => {
 						<TableCell>
 							<span className='inline-flex items-center gap-1 text-zinc-400'>
 								<Calendar className='h-4 w-4' />
-								{album.releaseYear}
+								{album.updatedAt.substring(0,10)}
 							</span>
 						</TableCell>
 						<TableCell>

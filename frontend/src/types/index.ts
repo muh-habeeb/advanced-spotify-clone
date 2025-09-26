@@ -11,6 +11,7 @@ export interface Song {
 }
 
 export interface Album {
+	updatedAt: ReactNode;
 	_id: string;
 	title: string;
 	artist: string;

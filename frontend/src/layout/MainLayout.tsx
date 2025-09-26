@@ -36,14 +36,15 @@ const MainLayout = () => {
 				</ResizablePanel>
 
 				{!isMobile && (
-					<>
-						<ResizableHandle className='w-2 bg-black rounded-lg transition-colors' />
+					// <>
+					// 	<ResizableHandle className='w-2 bg-black rounded-lg transition-colors' />
 
-						{/* right sidebar */}
-						<ResizablePanel defaultSize={20} minSize={0} maxSize={25} collapsedSize={0}>
-							<FriendsActivity />
-						</ResizablePanel>
-					</>
+					// 	{/* right sidebar */}
+					// 	<ResizablePanel defaultSize={20} minSize={0} maxSize={25} collapsedSize={0}>
+					// 		<FriendsActivity />
+					// 	</ResizablePanel>
+					// </>
+					<></>
 				)}
 			</ResizablePanelGroup>
 
