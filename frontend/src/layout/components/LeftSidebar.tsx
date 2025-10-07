@@ -36,7 +36,7 @@ const LeftSidebar = () => {
 						<span className='hidden md:inline'>Home</span>
 					</Link>
 
-					{/* <SignedIn>
+					<SignedIn>
 						<Link
 							to={"/chat"}
 							className={cn(
@@ -49,7 +49,7 @@ const LeftSidebar = () => {
 							<MessageCircle className='mr-2 size-5' />
 							<span className='hidden md:inline'>Messages</span>
 						</Link>
-					</SignedIn> */}
+					</SignedIn>
 				</div>
 			</div>
 
