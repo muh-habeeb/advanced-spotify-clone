@@ -1,3 +1,4 @@
+
 export interface Song {
 	_id: string;
 	title: string;
@@ -11,13 +12,15 @@ export interface Song {
 }
 
 export interface Album {
-	updatedAt: ReactNode;
 	_id: string;
 	title: string;
 	artist: string;
 	imageUrl: string;
 	releaseYear: number;
+	createdAt: string;
+	updatedAt: string;
 	songs: Song[];
+	// updatedAt: ReactNode;
 }
 
 export interface Stats {
@@ -40,5 +43,6 @@ export interface User {
 	_id: string;
 	clerkId: string;
 	fullName: string;
-	imageUrl: string;
+	imageUrl: string; createdAt: string;
+	updatedAt: string;
 }
