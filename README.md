@@ -10,7 +10,10 @@
 
 *A full-stack Spotify clone with real-time features, built with modern web technologies*
 
-[🚀 Live Demo](#) • [📖 Documentation](#features) • [🛠️ Installation](#installation) • [🤝 Contributing](#contributing)
+[🚀 Live Demo](#) • [📖 Documentation](#documentation) • [🛠️ Installation](#installation) • [🤝 Contributing](CONTRIBUTING.md)
+
+![Project Screenshot](docs/screenshots/homepage.png)
+*Main interface showing music discovery and playback controls*
 
 </div>
 
@@ -47,7 +50,22 @@
 - **File Upload** - Cloudinary integration for media management
 - **Database Integration** - MongoDB with Mongoose ODM
 
-## 🛠️ Tech Stack
+## � Documentation
+
+### Core Documentation
+- [🏗️ Architecture Overview](docs/ARCHITECTURE.md) - System design and component breakdown
+- [📚 API Documentation](docs/API.md) - Complete API reference and examples
+- [🚀 Deployment Guide](docs/DEPLOYMENT.md) - Production deployment instructions
+- [🤝 Contributing Guide](CONTRIBUTING.md) - How to contribute to the project
+- [📋 Changelog](CHANGELOG.md) - Version history and release notes
+
+### Additional Resources
+- [📸 Screenshots](docs/screenshots/) - Visual documentation and UI examples
+- [⚡ Quick Start Guide](#installation) - Get up and running quickly
+- [🔧 Environment Setup](#configuration) - Configuration details
+- [🎯 Usage Examples](#usage) - How to use the application
+
+## �🛠️ Tech Stack
 
 ### Frontend
 - **React 18** - Modern React with hooks and TypeScript
@@ -263,27 +281,15 @@ Set the `ADMIN_EMAIL` environment variable to your email address to gain admin p
 
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. **Make your changes**
-4. **Run tests and linting**
-   ```bash
-   npm run lint
-   ```
-5. **Commit your changes**
-   ```bash
-   git commit -m "Add: your feature description"
-   ```
-6. **Push to your branch**
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-7. **Open a Pull Request**
+### Quick Start for Contributors
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes and test thoroughly
+4. Commit your changes: `git commit -m 'Add amazing feature'`
+5. Push to the branch: `git push origin feature/amazing-feature`
+6. Open a Pull Request
 
 ### Development Guidelines
 - Follow TypeScript best practices
@@ -292,10 +298,31 @@ We welcome contributions! Please follow these steps:
 - Test your changes thoroughly
 - Follow the existing code style
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
 ## 📱 Screenshots
 
-<!-- Add screenshots here when available -->
-*Screenshots will be added soon*
+<div align="center">
+
+### 🏠 Main Dashboard
+![Homepage](docs/screenshots/homepage.png)
+*Browse featured music, trending songs, and personalized recommendations*
+
+### 🎵 Music Player
+![Music Player](docs/screenshots/music-player.png)
+*Full-featured audio player with queue management and volume control*
+
+### 👥 Real-time Chat
+![Chat Interface](docs/screenshots/chat-interface.png)
+*Integrated messaging system with online status and activity tracking*
+
+### 🔧 Admin Dashboard
+![Admin Panel](docs/screenshots/admin-dashboard.png)
+*Content management system for uploading and organizing music*
+
+</div>
+
+> **Note**: Screenshots will be added once the application is running. See [Screenshots Guide](docs/screenshots/README.md) for details on adding visual documentation.
 
 ## 🚦 Roadmap
 
