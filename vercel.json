@@ -1,8 +1,9 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "cd frontend && npm run build",
   "outputDirectory": "frontend/dist",
-  "installCommand": "npm install --legacy-peer-deps && npm install --prefix frontend --legacy-peer-deps --no-audit",
+  "installCommand": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps && cd frontend && NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --no-audit",
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "NPM_CONFIG_PRODUCTION": "false"
   }
 }
