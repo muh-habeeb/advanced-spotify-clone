@@ -325,7 +325,76 @@
 3. Commit changes
 4. Push and create PR
 
-## 📄 License
+## � Deployment
+
+### Vercel Deployment (Frontend)
+
+1. **Push code to GitHub**
+   ```bash
+   git add .
+   git commit -m "Deploy to Vercel"
+   git push
+   ```
+
+2. **Import to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "Import Project"
+   - Select your GitHub repository
+   - Vercel will auto-detect Vite
+   - Click "Deploy"
+
+3. **Add Environment Variables in Vercel Dashboard**
+   - Settings → Environment Variables
+   - Add: `VITE_CLERK_PUBLISHABLE_KEY`
+   - Add: `VITE_API_URL` (if needed)
+
+4. **Build Settings**
+   - Framework: Vite
+   - Build Command: `npm install --prefix frontend && npm run build --prefix frontend`
+   - Output Directory: `frontend/dist`
+   - Install Command: `npm install && npm install --prefix frontend`
+
+### Railway/Heroku Deployment (Backend)
+
+1. **Create Account**
+   - Go to [railway.app](https://railway.app) or [heroku.com](https://heroku.com)
+
+2. **Connect Repository**
+   - Select your GitHub repository
+   - Choose branch to deploy
+
+3. **Add Environment Variables**
+   - PORT
+   - NODE_ENV=production
+   - MONGODB_URI
+   - CLERK_PUBLISHABLE_KEY
+   - CLERK_SECRET_KEY
+   - CLOUDINARY_CLOUD_NAME
+   - CLOUDINARY_API_KEY
+   - CLOUDINARY_API_SECRET
+   - ADMIN_EMAIL
+
+4. **Deploy**
+   - Framework will auto-detect Node.js
+   - Build: `npm install`
+   - Start: `npm start`
+
+### Troubleshooting
+
+**Error: tsc: command not found**
+- Solution: Updated build script to use `npx tsc`
+- Ensure TypeScript is in `devDependencies`
+
+**Error: Module not found**
+- Solution: Run `npm install` before build
+- Check all dependencies are listed in `package.json`
+
+**Build timeout**
+- Solution: Optimize bundle size
+- Remove unused dependencies
+- Use dynamic imports
+
+## �📄 License
 
 ISC License
 
